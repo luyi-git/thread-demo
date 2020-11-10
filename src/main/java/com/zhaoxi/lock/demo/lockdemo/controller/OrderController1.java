@@ -29,9 +29,12 @@ public class OrderController1 {
         if(!isLocked){
             return "failure";
         }
+
+        System.out.println("test push");
         try {
             // 设置加锁key的过期时间
             // stringRedisTemplate.expire(PRODUCT_ID,30, TimeUnit.SECONDS);
+
             int stock = Integer.parseInt(stringRedisTemplate.opsForValue().get("stock"));
             if(stock > 0){
                 stock -= 1;
